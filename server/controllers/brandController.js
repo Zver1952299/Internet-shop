@@ -1,16 +1,16 @@
 const { Brand } = require("../models/models");
 
-class brandController {
-    async create(req, res) {
+class BrandController {
+    async post(req, res) {
         const {name} = req.body;
         const brand = await Brand.create({name});
-        return res.json(brand);
+        return res.json({brand});
     }
 
     async getAll(req, res) {
         const brands = await Brand.findAll();
-        return res.json(brands);
+        return res.json({brands});
     }
 }
 
-module.exports = new brandController();
+module.exports = new BrandController();
